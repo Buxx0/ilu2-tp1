@@ -153,4 +153,23 @@ public class Village {
 		}
 		return chaine.toString();
 	}
+	
+	public Etal rechercherEtal(Gaulois vendeur) {
+		StringBuilder chaine = new StringBuilder();
+		Etal etalTrouve = marche.trouverVendeur(vendeur);
+		System.out.println(etalTrouve.afficherEtal());
+		return etalTrouve;
+	}
+	
+	public String partirVendeur(Gaulois vendeur) {
+		Etal etalOccupe = rechercherEtal(vendeur);
+		return etalOccupe.libererEtal();	
+	}
+	
+	public String afficherMarche() {
+		StringBuilder chaine = new StringBuilder();
+		chaine.append("Le marche du village '" + this.getNom() + "' possede plusieurs etals :\n");
+		chaine.append(marche.afficherMarche());
+		return chaine.toString();
+	}
 }
